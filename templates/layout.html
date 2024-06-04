@@ -13,13 +13,17 @@
       <!-- span role, arialabel for accessibility -->
       <a href="/"><span role="img" aria-label="home" title="Home">🏠</span></a> | 
       <a href="/about"><span role="img" aria-label="about" title="About">😀</span></a> |
-      <a href="{% url 'posts:list' %}"><span role="img" aria-label="list" title="Posts">📰</span></a>|
-      <a href="{% url 'users:register' %}"><span role="img" aria-label="register" title="Register">🚀</span></a>|
-      <a href="{% url 'users:login' %}"><span role="img" aria-label="User Login" title="User Login">🔏</span></a>|
+      <a href="{% url 'posts:list' %}"><span role="img" aria-label="list" title="Posts">📰</span></a> |
+      {% if user.is_authenticated %}
+      <a href="{% url 'posts:new-post' %}"><span role="img" aria-label="Create new Post" title="New Post">🆕</span></a> |
       <form class="logout" action="{% url 'users:logout' %}" method="post">
                 {% csrf_token %} 
         <button class="logout-button" aria-label="User Logout" title="User Logout">👋</button>
       </form>
+      {% else %}
+      <a href="{% url 'users:register' %}"><span role="img" aria-label="register" title="Register">🚀</span></a> |
+      <a href="{% url 'users:login' %}"><span role="img" aria-label="User Login" title="User Login">🔏</span></a> |
+      {% endif %}
     </nav>
 
     <main>{% block content %} {% endblock %}</main>
