@@ -14,7 +14,8 @@
       <a href="/"><span role="img" aria-label="home" title="Home">🏠</span></a> | 
       <a href="/about"><span role="img" aria-label="about" title="About">😀</span></a> |
       <a href="{% url 'posts:list' %}"><span role="img" aria-label="list" title="Posts">📰</span></a>|
-      <a href="{% url 'users:register' %}"><span role="img" aria-label="register" title="Register">🚀</span></a>
+      <a href="{% url 'users:register' %}"><span role="img" aria-label="register" title="Register">🚀</span></a>|
+      <a href="{% url 'users:login' %}"><span role="img" aria-label="User Login" title="User Login">🔏</span></a>
     </nav>
 
     <main>{% block content %} {% endblock %}</main>
