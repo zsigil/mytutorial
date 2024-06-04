@@ -7,7 +7,7 @@ Register a User
 {% block content %}
 <section>
    <h1>Register a new User</h1>
-   <form class="form form-with-validation" action="/users/register/" method="POST">
+   <form class="form form-with-validation" action="{% url 'users:register' %}" method="POST">
       {% csrf_token %}
       {{form}}
       <button class="form-submit">SUBMIT</button>

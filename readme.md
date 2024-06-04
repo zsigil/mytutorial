@@ -13,4 +13,5 @@ pillow 10.3.0 (for images)
 ---
 
 if change in model: 1. makemigrations 2. migrate
+before deployment: settings.py changes, collectstatic
 
